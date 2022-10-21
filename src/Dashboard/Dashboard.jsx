@@ -2,7 +2,6 @@ import React from "react";
 import Lottie from "lottie-react";
 import Redcar from "../assets/red-car.json";
 import Bike from "../assets/Bike.json";
-import Man from "../assets/man.png";
 
 function Dashboard() {
   return (
