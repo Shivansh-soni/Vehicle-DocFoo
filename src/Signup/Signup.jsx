@@ -1,14 +1,13 @@
 import React from "react";
 import "./signup.css";
 function Signup() {
-  // const [fullname, setFullname] = React.useState("");
-  // const [email, setEmail] = React.useState("");
-  // const [password, setPassword] = React.useState("");
-
-  // const HandleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const isvalid = formValidation();
-  // };
+  const [fullname, setFullname] = React.useState("");
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    // const isvalid = formValidation();
+  };
 
   // const formValidation = () => {};
 
