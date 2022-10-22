@@ -51,7 +51,6 @@ function Home() {
       <div
         className="hero min-h-screen "
         style={{
-          width: "100vw",
           backgroundImage: `url("https://source.unsplash.com/random/1920×1080/?cars")`,
         }}
       >

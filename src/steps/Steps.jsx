@@ -3,6 +3,7 @@ import React from "react";
 function Steps() {
   return (
     <>
+      <div className="steps-container mr-2"></div>
       <p className="text-center my-9">How It Works</p>
       <div className="flex justify-center items-center">
         <ul className="steps">
