@@ -4,8 +4,16 @@ import Home from "./Home/Home";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./Dashboard/Dashboard";
 import Signup from "./Signup/Signup";
+import React, { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function App() {
+  useEffect(() => {
+    Aos.init({
+      disable: "mobile",
+    });
+  }, []);
   return (
     <BrowserRouter>
       <Routes>

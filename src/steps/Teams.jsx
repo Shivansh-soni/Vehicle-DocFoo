@@ -2,7 +2,11 @@ import React from "react";
 
 function Teams() {
   return (
-    <div>
+    <div
+      data-aos="zoom-in-up"
+      data-aos-duration="1500"
+      data-aos-easing="ease-in-out"
+    >
       <div className="team-container my-9 w-full">
         <p className="text-xl text-center">Meet Our Team</p>
         <div
