@@ -6,16 +6,16 @@ import Teams from "../steps/Teams";
 
 function Home() {
   return (
-    <div className="Home-container w-screen font-pop" data-aos="fade-down">
+    <div className="Home-container font-pop">
       {/* ----------------------NAVBAR---------------------- */}
-      <div className="navbar bg-base-100 bg-transparent  ">
+      <div className="navbar bg-base-100 bg-transparent w-screen">
         <div className="flex-1">
-          <a href="/#" className="btn btn-ghost docfo normal-case text-xl">
+          <a href="/#" className="btn btn-ghost normal-case text-xl">
             Vehicle DocFoo
           </a>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal p-0 sm:text-s">
+          <ul className="menu menu-horizontal p-0">
             <li>
               <a href="/#">Home</a>
             </li>
@@ -49,8 +49,9 @@ function Home() {
       </div>
       {/* ---------------------------HERO ---------------- */}
       <div
-        className="hero min-h-screen w-full "
+        className="hero min-h-screen "
         style={{
+          width: "100vw",
           backgroundImage: `url("https://source.unsplash.com/random/1920×1080/?cars")`,
         }}
       >

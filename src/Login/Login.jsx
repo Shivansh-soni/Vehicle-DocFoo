@@ -29,22 +29,22 @@ function Hero() {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <Link to="/">Homepage</Link>
+                <a href="/#">Homepage</a>
               </li>
               <li>
-                <Link to="">About</Link>
+                <a href="/#">About</a>
               </li>
               <li>
-                <Link to="/">Contact Us</Link>
+                <a href="/#">Contact Us</a>
               </li>
             </ul>
           </div>
         </div>
         <div className="navbar-center"></div>
         <div className="navbar-end">
-          <Link to="/signup" className="btn btn-ghost normal-case text-xl">
+          <a href="/signup" className="btn btn-ghost normal-case text-xl">
             Sign Up
-          </Link>
+          </a>
         </div>
       </div>
 
@@ -80,9 +80,9 @@ function Hero() {
                     className="input input-bordered"
                   />
                   <label className="label">
-                    <button href="#" className="label-text-alt link link-hover">
+                    <a href="/#" className="label-text-alt link link-hover">
                       Forgot password?
-                    </button>
+                    </a>
                   </label>
                 </div>
                 <div className="form-control mt-6">

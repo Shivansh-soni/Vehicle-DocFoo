@@ -72,19 +72,12 @@ Media Query (small DEVICES)
 
 @media screen and (max-width:600px) {
     .experience_container {
-        gap: 1rem;
-        margin-left: 0;
+        gap: 4rem;
+        margin-bottom: 10rem;
     }
 
     .experience_container>div {
-        font-size: 1rem;
         padding: 2rem 1rem;
-
     }
 
-    .experience_details-icon {
-        font-size: 1.5rem;
-        margin-top: 6px;
-        color: var(--color-primary);
-    }
 }

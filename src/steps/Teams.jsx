@@ -2,12 +2,8 @@ import React from "react";
 
 function Teams() {
   return (
-    <div
-      data-aos="fade-up"
-      data-aos-duration="1500"
-      data-aos-easing="ease-in-out"
-    >
-      <div className="team-container my-9 ">
+    <div>
+      <div className="team-container my-9 w-full">
         <p className="text-xl text-center">Meet Our Team</p>
         <div
           className="team flex flex-row justify-center flex-wrap"
