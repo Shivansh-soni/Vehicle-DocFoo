@@ -1,5 +1,4 @@
 import React from "react";
-import { FaBeer } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -30,20 +29,22 @@ function Hero() {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a>Homepage</a>
+                <Link to="/">Homepage</Link>
               </li>
               <li>
-                <a>About</a>
+                <Link to="">About</Link>
               </li>
               <li>
-                <a>Contact Us</a>
+                <Link to="/">Contact Us</Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="navbar-center"></div>
         <div className="navbar-end">
-          <a className="btn btn-ghost normal-case text-xl">Sign Up</a>
+          <Link to="/signup" className="btn btn-ghost normal-case text-xl">
+            Sign Up
+          </Link>
         </div>
       </div>
 
@@ -79,9 +80,9 @@ function Hero() {
                     className="input input-bordered"
                   />
                   <label className="label">
-                    <a href="#" className="label-text-alt link link-hover">
+                    <button href="#" className="label-text-alt link link-hover">
                       Forgot password?
-                    </a>
+                    </button>
                   </label>
                 </div>
                 <div className="form-control mt-6">

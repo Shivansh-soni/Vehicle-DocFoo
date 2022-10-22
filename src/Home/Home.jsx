@@ -6,19 +6,21 @@ import Teams from "../steps/Teams";
 
 function Home() {
   return (
-    <div className="Home-container font-pop">
+    <div className="Home-container w-screen font-pop" data-aos="fade-down">
       {/* ----------------------NAVBAR---------------------- */}
-      <div className="navbar bg-base-100 bg-transparent">
+      <div className="navbar bg-base-100 bg-transparent  ">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">Vehicle DocFoo</a>
+          <a href="/#" className="btn btn-ghost docfo normal-case text-xl">
+            Vehicle DocFoo
+          </a>
         </div>
         <div className="flex-none">
-          <ul className="menu menu-horizontal p-0">
+          <ul className="menu menu-horizontal p-0 sm:text-s">
             <li>
-              <a>Home</a>
+              <a href="/#">Home</a>
             </li>
             <li tabIndex={0}>
-              <a>
+              <a href="/#">
                 Get Started
                 <svg
                   className="fill-current"
@@ -32,26 +34,22 @@ function Home() {
               </a>
               <ul className="p-2 bg-base-100 w-full">
                 <li>
-                  <a>
-                    <Link to="/login">Login </Link>
-                  </a>
+                  <Link to="/login">Login </Link>
                 </li>
                 <li>
-                  <a>
-                    <Link to="/signup">Sign Up </Link>
-                  </a>
+                  <Link to="/signup">Sign Up </Link>
                 </li>
               </ul>
             </li>
             <li>
-              <a>About Us</a>
+              <a href="/#">About Us</a>
             </li>
           </ul>
         </div>
       </div>
       {/* ---------------------------HERO ---------------- */}
       <div
-        className="hero min-h-screen"
+        className="hero min-h-screen w-full "
         style={{
           backgroundImage: `url("https://source.unsplash.com/random/1920×1080/?cars")`,
         }}
