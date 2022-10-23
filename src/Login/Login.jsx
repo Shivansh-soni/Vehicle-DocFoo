@@ -1,11 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
 function Hero() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const user = ["Shivansh", "Triyansh"];
+  const pass = ["soni1234", "jain1234"];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("User :-", username);
+    console.log("Pass :-", password);
+
+    if (username && password) {
+      for (let i = 0; i < user.length; i++) {
+        if (user[i] === username && pass[i] === password) {
+          console.log("right");
+          break;
+        } else {
+          alert("wrong creds");
+        }
+      }
+    } else {
+      alert("Enter all details");
+    }
+  };
+
   return (
     <div>
       {/* ------------------------NAVBAR------------------------ */}
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 fixed">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -66,6 +90,10 @@ function Hero() {
                   </label>
                   <input
                     type="text"
+                    value={username}
+                    onChange={(e) => {
+                      setUsername(e.target.value);
+                    }}
                     placeholder="Email"
                     className="input input-bordered"
                   />
@@ -75,6 +103,10 @@ function Hero() {
                     <span className="label-text">Password</span>
                   </label>
                   <input
+                    value={password}
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                     type="password"
                     placeholder="Password"
                     className="input input-bordered"
@@ -86,9 +118,13 @@ function Hero() {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <Link to="/db" className="btn btn-primary">
-                    LOGIN
-                  </Link>
+                  <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    className="btn btn-primary"
+                  >
+                    Login
+                  </button>
                 </div>
               </div>
             </div>
