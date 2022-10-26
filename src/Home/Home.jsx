@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="Home-container font-pop">
       {/* ----------------------NAVBAR---------------------- */}
-      <div className="navbar fixed bg-base-100 bg-transparent w-screen">
+      <div className="navbar fixed z-50 bg-base-100 bg-transparent w-screen">
         <div className="flex-1">
           <a href="/#" className="btn btn-ghost normal-case text-xl">
             Vehicle DocFoo

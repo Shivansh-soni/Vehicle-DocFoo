@@ -17,7 +17,7 @@ function Hero() {
         if (user[i] === username && pass[i] === password) {
           console.log(user[i]);
           console.log(pass[i]);
-          window.location.assign("/db");
+          window.location.assign("/dashboard");
           // break;
         }
       }
