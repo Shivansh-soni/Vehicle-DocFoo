@@ -5,10 +5,30 @@ import Steps from "../steps/Steps";
 import Teams from "../steps/Teams";
 
 function Home() {
+  window.onscroll = function () {
+    scrollFunction();
+  };
+
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 600 ||
+      document.documentElement.scrollTop > 600
+    ) {
+      document.getElementById("navbar").style.background = "#171212";
+    } else {
+      document.getElementById("navbar").style.background = "transparent";
+      document.getElementById("navbar").style.padding = "20px 0 15px 0  ";
+      // document.getElementById("logo").style.fontSize = "35px";
+    }
+  }
+
   return (
     <div className="Home-container font-pop">
       {/* ----------------------NAVBAR---------------------- */}
-      <div className="navbar fixed z-50 bg-base-100 bg-transparent w-screen">
+      <div
+        className="navbar fixed z-50 bg-base-100 bg-transparent w-screen"
+        id="navbar"
+      >
         <div className="flex-1">
           <a href="/#" className="btn btn-ghost normal-case text-xl">
             Vehicle DocFoo
@@ -99,6 +119,16 @@ function Home() {
       <Services />
       <Steps />
       <Teams />
+
+      {/* =====================================FOOTER======================================== */}
+      <footer
+        className="footer footer-center p-4 bg-base-300 text-ghost-content "
+        // style={{ marginTop: "500px" }}
+      >
+        <div>
+          <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -11,7 +11,7 @@ import "aos/dist/aos.css";
 function App() {
   useEffect(() => {
     Aos.init({
-      disable: window.innerWidth < 1024,
+      disable: "mobile",
     });
   }, []);
   return (
