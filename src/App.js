@@ -7,6 +7,7 @@ import Signup from "./Signup/Signup";
 import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Table from "./Table/Table";
 
 function App() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
+        <Route path="/logs" element={<Table />}></Route>
       </Routes>
     </BrowserRouter>
     // <div className="App" ata-theme="cyberpunk">

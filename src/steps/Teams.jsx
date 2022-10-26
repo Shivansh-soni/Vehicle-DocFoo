@@ -1,5 +1,5 @@
 import React from "react";
-import Shiv from "../assets/shiv.png";
+import Shiv from "../assets/Shivansh3.png";
 import titu from "../assets/titu.png";
 import rasika from "../assets/rasika.png";
 import { BsLinkedin } from "react-icons/bs";
@@ -37,7 +37,15 @@ function Teams() {
                 <h2 className="card-title">Shivansh Soni</h2>
                 <p className="my-3">Founder and CEO of Vehicle DocFoo</p>
                 <div className="card-actions flex gap-13">
-                  <button className="btn btn-primary">{<BsLinkedin />}</button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      window.location.href =
+                        "https://www.linkedin.com/in/shivansh-soni-a97321231/";
+                    }}
+                  >
+                    {<BsLinkedin />}
+                  </button>
                   <button
                     className="btn btn-primary"
                     onClick={() => {
@@ -46,10 +54,21 @@ function Teams() {
                   >
                     <BsGithub />
                   </button>
-                  <button className="btn btn-primary">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      window.location.href =
+                        "https://www.instagram.com/k_se_kalakaar/";
+                    }}
+                  >
                     <BsInstagram />
                   </button>
-                  <button className="btn btn-primary">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      window.location.href = "https://www.shivanshsoni.com/";
+                    }}
+                  >
                     <FaFirefoxBrowser />
                   </button>
                 </div>

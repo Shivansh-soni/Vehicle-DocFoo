@@ -2,10 +2,13 @@ import React from "react";
 import Lottie from "lottie-react";
 import Redcar from "../assets/red-car.json";
 import Bike from "../assets/Bike.json";
+import Header from "../Header/Header";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
     <div>
+      <Header />
       {/* ---------------------DASHBOARD------------------------------------------ */}
 
       <div className="card_container flex flex-wrap flex-row gap-20 py-12 align justify-center">
@@ -19,9 +22,12 @@ function Dashboard() {
           </figure>
           <div className="card-body">
             <h2 className="card-title">Shivansh's MT15</h2>
-            <p>Click here to see this vehicle's Details</p>
+            <p>Click below to see this vehicle's Details</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-secondary">Service Logs</button>
+              <button className="btn btn-secondary my-5">
+                {" "}
+                <Link to="/logs">Service Logs</Link>
+              </button>
             </div>
           </div>
         </div>
@@ -35,7 +41,7 @@ function Dashboard() {
           </figure>
           <div className="card-body">
             <h2 className="card-title">Shivansh's Nexon</h2>
-            <p>Click here to see this vehicle's Details</p>
+            <p>Click below to see this vehicle's Details</p>
             <div className="card-actions justify-end">
               <button className="btn btn-secondary">Service Logs</button>
             </div>
@@ -51,7 +57,7 @@ function Dashboard() {
           </figure>
           <div className="card-body">
             <h2 className="card-title">Shivansh's Maestro</h2>
-            <p>Click here to see this vehicle's Details</p>
+            <p>Click below to see this vehicle's Details</p>
             <div className="card-actions justify-end">
               <button className="btn btn-secondary">Service Logs</button>
             </div>
