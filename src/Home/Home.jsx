@@ -59,8 +59,8 @@ function Home() {
           <div className="max-w-md">
             <h1 className="mb-5 text-5xl font-bold">Vehicle DocFoo</h1>
             <p className="mb-5 text-xl">
-              Vehicle DocFoo is a MERN-based Web-App Designed and Developed to
-              fulfill all your vehicle needs under a single roof.
+              A MERN-based Web-App for all your vehicle needs. Swipe down to
+              know more
             </p>
             <button className="btn btn-primary">
               <Link to="/signup">Get Started</Link>
@@ -68,6 +68,32 @@ function Home() {
           </div>
         </div>
       </div>
+
+      {/* =====================================HERO SECTION================================== */}
+
+      <div
+        className="hero min-h-screen bg-base-200 "
+        style={{ width: "70%", margin: "0 auto" }}
+      >
+        <div className="hero-content flex-col lg:flex-row px-13 gap-11">
+          <img
+            src="https://source.unsplash.com/random/1920×1080/?cars"
+            alt="kuch bhi"
+            className="max-w-sm rounded-lg shadow-2xl h-13"
+          />
+          <div>
+            <h1 className="text-5xl font-bold">About Us</h1>
+            <p className="py-6  w-13 text-xl">
+              Vehicle DocFoo is a MERN Based Application which provides optimal
+              solution for all the services a vehicle can have i.e. washing &
+              Teflon Coating, changing spare parts and regular servicing.
+              Including the maintenance of service records which is highly
+              secure and can be accessed anytime, anywhere.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* ------------------------------------Services--------------------------------- */}
       <p className="text-xl text-center my-12">Services We offer</p>
       <Services />

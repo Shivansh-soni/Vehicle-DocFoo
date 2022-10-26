@@ -37,7 +37,8 @@ html {
     }
 
     .steps-container {
-        margin-left: 50px;
+        padding: 0 1rem;
+        font-size: .5625rem;
     }
 
 }
