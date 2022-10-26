@@ -3,14 +3,14 @@ import React from "react";
 function Steps() {
   return (
     <div
-      data-aos="flip-down"
+      data-aos="fade-up"
       data-aos-duration="1000"
-      data-aos-easing="ease-in-out"
+      // data-aos-easing="ease-in-out"
       style={{
         margin: "9.375rem 0px",
       }}
     >
-      <div className="steps-container " data-aos="flip-down">
+      <div className="steps-container ">
         <p className="text-center my-9">How It Works</p>
         <div className="flex justify-center items-center">
           <ul className="steps">
