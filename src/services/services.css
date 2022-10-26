@@ -1,8 +1,12 @@
 /* .experience_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 20rem;
 } */
+
+#experience {
+    margin-top: 3.125rem;
+}
 
 .experience_container>div {
     padding: 2.4rem 5rem;

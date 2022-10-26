@@ -15,10 +15,10 @@ function Hero() {
     if (username && password) {
       for (let i = 0; i < user.length; i++) {
         if (user[i] === username && pass[i] === password) {
-          console.log("right");
-          break;
-        } else {
-          alert("wrong creds");
+          console.log(user[i]);
+          console.log(pass[i]);
+          window.location.assign("/db");
+          // break;
         }
       }
     } else {

@@ -8,7 +8,7 @@ function Home() {
   return (
     <div className="Home-container font-pop">
       {/* ----------------------NAVBAR---------------------- */}
-      <div className="navbar bg-base-100 bg-transparent w-screen">
+      <div className="navbar fixed bg-base-100 bg-transparent w-screen">
         <div className="flex-1">
           <a href="/#" className="btn btn-ghost normal-case text-xl">
             Vehicle DocFoo
@@ -69,7 +69,7 @@ function Home() {
         </div>
       </div>
       {/* ------------------------------------Services--------------------------------- */}
-      <p className="text-xl text-center my-10">Services We offer</p>
+      <p className="text-xl text-center my-12">Services We offer</p>
       <Services />
       <Steps />
       <Teams />

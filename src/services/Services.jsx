@@ -4,7 +4,12 @@ import { BsPatchCheckFill } from "react-icons/bs";
 
 function Services() {
   return (
-    <section id="experience" data-aos="fade-right" data-aos-duration="1000">
+    <section
+      id="experience"
+      data-aos="fade-right"
+      data-aos-duration="1000"
+      className="mb-8"
+    >
       <div className="container experience_container flex flex-row justify-center gap-8 flex-wrap">
         <div className="experience_backend bg-primary text-black  hover:text-white ">
           <h3 className="text-center">Maintain Service Logs</h3>
