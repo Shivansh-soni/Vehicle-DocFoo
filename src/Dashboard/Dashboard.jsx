@@ -3,11 +3,13 @@ import Lottie from "lottie-react";
 import Redcar from "../assets/red-car.json";
 import Bike from "../assets/Bike.json";
 import Header from "../Header/Header";
+import Blocks from "../Blocks/Blocks";
 import { Link } from "react-router-dom";
 
 function Dashboard() {
   return (
     <div>
+      <Blocks />
       <Header />
       {/* ---------------------DASHBOARD------------------------------------------ */}
 

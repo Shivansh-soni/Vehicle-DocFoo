@@ -9,6 +9,7 @@ function About() {
       data-aos-easing="ease-in-out"
     >
       <div
+        id="about"
         className="hero min-h-screen bg-base-100 "
         style={{ width: "70%", margin: "0 auto" }}
       >

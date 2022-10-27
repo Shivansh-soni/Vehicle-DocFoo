@@ -93,21 +93,35 @@ function Teams() {
                 <h2 className="card-title">Triyansh Jain</h2>
                 <p className="my-3"> Co-founder and Front-End Developer</p>
                 <div className="card-actions flex gap-13">
-                  <button className="btn btn-primary">{<BsLinkedin />}</button>
                   <button
                     className="btn btn-primary"
                     onClick={() => {
-                      window.location.href = "https://github.com/shivansh-soni";
+                      window.location.href =
+                        "https://www.linkedin.com/in/triyanshjain2425/";
+                    }}
+                  >
+                    {<BsLinkedin />}
+                  </button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      window.location.href = "https://github.com/Triyanshjain";
                     }}
                   >
                     <BsGithub />
                   </button>
-                  <button className="btn btn-primary">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      window.location.href =
+                        "https://www.instagram.com/triyanshhh/";
+                    }}
+                  >
                     <BsInstagram />
                   </button>
-                  <button className="btn btn-primary">
+                  {/* <button className="btn btn-primary">
                     <FaFirefoxBrowser />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>
@@ -131,21 +145,35 @@ function Teams() {
                 <h2 className="card-title">Rasika Irpachi</h2>
                 <p className="my-3">UI/UX Designer </p>
                 <div className="card-actions flex gap-13">
-                  <button className="btn btn-primary">{<BsLinkedin />}</button>
                   <button
                     className="btn btn-primary"
                     onClick={() => {
-                      window.location.href = "https://github.com/shivansh-soni";
+                      window.location.href =
+                        "https://www.linkedin.com/in/rasika-irpachi-914217213";
+                    }}
+                  >
+                    {<BsLinkedin />}
+                  </button>
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      window.location.href = "https://github.com/Triyanshjain";
                     }}
                   >
                     <BsGithub />
                   </button>
-                  <button className="btn btn-primary">
+                  <button
+                    className="btn btn-primary"
+                    onClick={() => {
+                      window.location.href =
+                        "https://www.instagram.com/rasika_irpachi/";
+                    }}
+                  >
                     <BsInstagram />
                   </button>
-                  <button className="btn btn-primary">
+                  {/* <button className="btn btn-primary">
                     <FaFirefoxBrowser />
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

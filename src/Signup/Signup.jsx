@@ -1,5 +1,6 @@
 import React from "react";
 import "./signup.css";
+import Blocks from "../Blocks/Blocks";
 function Signup() {
   const [fullname, setFullname] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -13,6 +14,7 @@ function Signup() {
 
   return (
     <div className="bg font-pop">
+      <Blocks />
       <div
         className="flex justify-center items-center "
         style={{

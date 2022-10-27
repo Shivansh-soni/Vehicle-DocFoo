@@ -5,6 +5,7 @@ import Steps from "../steps/Steps";
 import Teams from "../steps/Teams";
 import Hero1 from "../Hero/Hero1";
 import About from "../Hero/About";
+import Blocks from "../Blocks/Blocks";
 
 function Home() {
   window.onscroll = function () {
@@ -25,10 +26,11 @@ function Home() {
   }
 
   return (
-    <div className="Home-container font-pop">
+    <div className="Home-container  font-pop">
+      <Blocks />
       {/* ----------------------NAVBAR---------------------- */}
       <div
-        className="navbar fixed z-50 bg-base-100 bg-transparent w-screen"
+        className="navbar fixed bg-base-100 bg-transparent w-screen"
         id="navbar"
       >
         <div className="flex-1">
@@ -64,7 +66,7 @@ function Home() {
               </ul>
             </li>
             <li>
-              <a href="/#">About Us</a>
+              <a href="#about">About Us</a>
             </li>
           </ul>
         </div>

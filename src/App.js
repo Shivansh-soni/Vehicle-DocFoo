@@ -25,6 +25,7 @@ function App() {
         <Route path="/logs" element={<Table />}></Route>
       </Routes>
     </BrowserRouter>
+    // <Blocks />
     // <div className="App" ata-theme="cyberpunk">
     //   <Header2 />
     // </div>

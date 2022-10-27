@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Blocks from "../Blocks/Blocks";
 
 function Hero() {
   const [username, setUsername] = useState("");
@@ -29,6 +30,7 @@ function Hero() {
   return (
     <div>
       {/* ------------------------NAVBAR------------------------ */}
+      <Blocks />
       <div className="navbar bg-base-100 fixed">
         <div className="navbar-start">
           <div className="dropdown">
