@@ -55,7 +55,7 @@
     background: rgba(0, 0, 0, 0.92);
     backdrop-filter: blur(5);
     top: 0;
-    animation: bgreveal 3s ease 1 forwards;
+    animation: bgreveal 3.5s ease 1 forwards;
     width: 100vw;
     height: 100vh;
     transition: 1s ease-in;
