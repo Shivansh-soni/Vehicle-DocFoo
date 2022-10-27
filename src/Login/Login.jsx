@@ -2,30 +2,34 @@ import React, { useState } from "react";
 import Blocks from "../Blocks/Blocks";
 
 function Hero() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const user = ["Shivansh", "Triyansh"];
-  const pass = ["soni1234", "jain1234"];
-
-  const handleSubmit = (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
-    console.log("User :-", username);
-    console.log("Pass :-", password);
+    if (email && password) {
+      const response = await fetch("http://localhost:1337/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-    if (username && password) {
-      for (let i = 0; i < user.length; i++) {
-        if (user[i] === username && pass[i] === password) {
-          console.log(user[i]);
-          console.log(pass[i]);
-          window.location.assign("/dashboard");
-          // break;
-        }
+      const data = await response.json();
+
+      if (data.user) {
+        window.location.href = "/dashboard";
+      } else {
+        alert("Wrong Credentials. Please try again");
       }
     } else {
       alert("Enter all details");
     }
-  };
+  }
 
   return (
     <div>
@@ -86,16 +90,16 @@ function Hero() {
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
               <div className="card-body ml-3">
-                <form action="">
+                <form onSubmit={handleSubmit}>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Email</span>
                     </label>
                     <input
                       type="text"
-                      value={username}
+                      value={email}
                       onChange={(e) => {
-                        setUsername(e.target.value);
+                        setEmail(e.target.value);
                       }}
                       placeholder="Email"
                       className="input input-bordered"
@@ -121,11 +125,7 @@ function Hero() {
                     </label>
                   </div>
                   <div className="form-control mt-6">
-                    <button
-                      type="submit"
-                      onClick={handleSubmit}
-                      className="btn btn-primary"
-                    >
+                    <button type="submit" className="btn btn-primary">
                       Login
                     </button>
                   </div>

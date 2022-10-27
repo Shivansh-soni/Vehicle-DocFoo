@@ -5,8 +5,23 @@ import Bike from "../assets/Bike.json";
 import Header from "../Header/Header";
 import Blocks from "../Blocks/Blocks";
 import { Link } from "react-router-dom";
+// import jwt from "jsonwebtoken";
 
 function Dashboard() {
+  // useEffect(() => {
+  //   // const history = useHistory();
+  //   const token = localStorage.getItem("token");
+  //   if (token) {
+  //     const user = jwt.decode(token);
+  //     if (!user) {
+  //       localStorage.removeItem("token");
+  //       // history.replace("/login");
+  //     } else {
+  //       console.log("USER");
+  //     }
+  //   }
+  // }, []);
+
   return (
     <div>
       <Blocks />
