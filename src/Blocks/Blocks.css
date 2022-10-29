@@ -78,6 +78,7 @@
 
 
 .building-blocks>div {
+
     height: 20px;
     z-index: 999;
     position: absolute;
@@ -91,6 +92,7 @@
     -webkit-animation: building-blocks 2.1s ease-in-out 1 both;
     animation: building-blocks 2.1s ease-in-out 1 both;
     background: #1fd65f;
+    border-radius: 5px;
     content: '';
     display: block;
     height: 20px;
