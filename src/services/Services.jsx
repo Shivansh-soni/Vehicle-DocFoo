@@ -23,19 +23,19 @@ function Services() {
             <article className="experience_details">
               <BsPatchCheckFill className="experience_details-icon" />
               <div>
-                <h4>Assured Security of Data</h4>
+                <h4>Secure data storage</h4>
               </div>
             </article>
             <article className="experience_details">
               <BsPatchCheckFill className="experience_details-icon" />
               <div>
-                <h3>No extra bloatwares </h3>
+                <h3>Bloatwares Free</h3>
               </div>
             </article>
             <article className="experience_details">
               <BsPatchCheckFill className="experience_details-icon" />
               <div>
-                <h4>Hassle Free Experience</h4>
+                <h4> Hassle-free experience .</h4>
               </div>
             </article>
           </div>
@@ -46,13 +46,13 @@ function Services() {
             <article className="experience_details">
               <BsPatchCheckFill className="experience_details-icon" />
               <div>
-                <h4>Availibile locally</h4>
+                <h4>Availible locally</h4>
               </div>
             </article>
             <article className="experience_details">
               <BsPatchCheckFill className="experience_details-icon" />
               <div>
-                <h4>Spare parts avaialibility</h4>
+                <h4>Spare parts availability</h4>
               </div>
             </article>
             <article className="experience_details">
@@ -64,7 +64,7 @@ function Services() {
             <article className="experience_details">
               <BsPatchCheckFill className="experience_details-icon" />
               <div>
-                <h4>Budget Friendly</h4>
+                <h4>Pocket Friendly</h4>
               </div>
             </article>
           </div>

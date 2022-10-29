@@ -3,7 +3,7 @@ import React from "react";
 function Hero2() {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 z-999">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">

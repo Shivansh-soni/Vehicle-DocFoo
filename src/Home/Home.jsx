@@ -30,7 +30,7 @@ function Home() {
       <Blocks />
       {/* ----------------------NAVBAR---------------------- */}
       <div
-        className="navbar fixed bg-base-100 bg-transparent w-screen"
+        className="navbar fixed z-50 bg-base-100 bg-transparent w-screen"
         id="navbar"
       >
         <div className="flex-1">

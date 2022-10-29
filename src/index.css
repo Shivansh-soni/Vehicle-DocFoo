@@ -25,6 +25,10 @@ html {
         font-size: 10px;
     }
 
+    .media-center {
+        text-align: center;
+    }
+
     * {
         /* border: 1px solid red; */
     }
