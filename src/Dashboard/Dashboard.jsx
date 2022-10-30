@@ -9,23 +9,23 @@ import jwt_decode from "jwt-decode";
 function Dashboard() {
   const [username, setName] = useState("");
 
-  async function populateUser() {
-    const req = await fetch("http://localhost:1337/api/db", {
-      headers: {
-        "x-access-token": localStorage.getItem("token"),
-      },
-    });
+  // async function populateUser() {
+  //   const req = await fetch("http://localhost:1337/api/db", {
+  //     headers: {
+  //       "x-access-token": localStorage.getItem("token"),
+  //     },
+  //   });
 
-    req.json().then((res) => {
-      console.log(res);
-      if (res.status === "ok") {
-        setName(res.name);
-      } else {
-        console.log(res.error);
-      }
-    });
-    console.log(username);
-  }
+  //   req.json().then((res) => {
+  //     console.log(res);
+  //     if (res.status === "ok") {
+  //       setName(res.name);
+  //     } else {
+  //       console.log(res.error);
+  //     }
+  //   });
+  //   console.log(username);
+  // }
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -35,12 +35,28 @@ function Dashboard() {
 
       if (!user) {
         localStorage.removeItem("token");
-        navigate("/login");
+        window.loacation.href = "/login";
       } else {
-        populateUser();
+        async function populate() {
+          const req = await fetch("http://localhost:1337/api/db", {
+            headers: {
+              "x-access-token": localStorage.getItem("token"),
+            },
+          });
+
+          req.json().then((res) => {
+            console.log(res);
+            if (res.status === "ok") {
+              setName(res.name);
+            } else {
+              console.log(res.error);
+            }
+          });
+        }
+        populate();
       }
     } else {
-      navigate("/login");
+      window.location.href = "/login";
     }
   }, []);
 
