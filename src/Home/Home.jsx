@@ -34,11 +34,14 @@ function Home() {
         id="navbar"
       >
         <div className="flex-1">
-          <a href="/#" className="btn btn-ghost normal-case text-xl">
+          <a
+            href="/#"
+            className="btn btn-ghost normal-case text-xl docfoo_logo "
+          >
             Vehicle DocFoo
           </a>
         </div>
-        <div className="flex-none">
+        <div className="flex-none menu_container">
           <ul className="menu menu-horizontal p-0">
             <li>
               <a href="/#">Home</a>

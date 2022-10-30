@@ -1,12 +1,13 @@
 import React from "react";
 import "./signup.css";
 import Blocks from "../Blocks/Blocks";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [fullname, setFullname] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  // const history = useHistory();
+  const navigate = useNavigate();
 
   async function HandleSubmit(e) {
     e.preventDefault();
@@ -23,6 +24,10 @@ function Signup() {
     });
 
     const data = await response.json();
+
+    if (data.status === "ok") {
+      navigate("/login");
+    }
 
     if (data.status === "success") {
       alert("Data saved successfully Redirecting to Login Page");

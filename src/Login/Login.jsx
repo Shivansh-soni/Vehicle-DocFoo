@@ -22,6 +22,7 @@ function Hero() {
       const data = await response.json();
 
       if (data.user) {
+        localStorage.setItem("token", data.user);
         window.location.href = "/dashboard";
       } else {
         alert("Wrong Credentials. Please try again");
