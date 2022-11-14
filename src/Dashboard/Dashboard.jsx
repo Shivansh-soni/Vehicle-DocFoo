@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Lottie from "lottie-react";
-import Redcar from "../assets/red-car.json";
+// import Redcar from "../assets/red-car.json";
 import Bike from "../assets/Bike.json";
 import Blocks from "../Blocks/Blocks";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,24 +8,7 @@ import jwt_decode from "jwt-decode";
 
 function Dashboard() {
   const [username, setName] = useState("");
-
-  // async function populateUser() {
-  //   const req = await fetch("http://localhost:1337/api/db", {
-  //     headers: {
-  //       "x-access-token": localStorage.getItem("token"),
-  //     },
-  //   });
-
-  //   req.json().then((res) => {
-  //     console.log(res);
-  //     if (res.status === "ok") {
-  //       setName(res.name);
-  //     } else {
-  //       console.log(res.error);
-  //     }
-  //   });
-  //   console.log(username);
-  // }
+  let [vehicles, setVehicles] = useState([]);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -45,9 +28,11 @@ function Dashboard() {
           });
 
           req.json().then((res) => {
-            console.log(res);
+            console.log("RES", res);
             if (res.status === "ok") {
-              setName(res.name);
+              setName(res.name.toUpperCase());
+
+              setVehicles(res.vehicle);
             } else {
               console.log(res.error);
             }
@@ -63,8 +48,8 @@ function Dashboard() {
   return (
     <div>
       <Blocks />
-      {/* ------------------------------HEADER------------------------------- */}
 
+      {/* ------------------------------HEADER------------------------------- */}
       <div className="navbar bg-base-100 z-999">
         <div className="navbar-start">
           <div className="dropdown">
@@ -89,7 +74,7 @@ function Dashboard() {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a href="/#">Add Vehicle</a>
+                <a href="/addVehicle">Add Vehicle</a>
               </li>
               <li>
                 <a href="/#">Settings</a>
@@ -109,11 +94,16 @@ function Dashboard() {
         </div>
         <div className="navbar-center">
           <p className="btn btn-ghost normal-case text-xl">
-            Hello , {username}
+            Hello , {username.charAt(0).toUpperCase() + username.slice(1)}
           </p>
         </div>
         <div className="navbar-end">
-          <button className="btn btn-ghost btn-circle">
+          <button
+            className="btn btn-ghost btn-circle"
+            onClick={() => {
+              window.location.href = "/showVendor";
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -150,46 +140,47 @@ function Dashboard() {
           </button>
         </div>
       </div>
-
       {/* ---------------------DASHBOARD------------------------------------------ */}
-
       <div className="card_container flex flex-wrap flex-row gap-20 py-12 align justify-center">
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <Lottie
-              animationData={Bike}
-              loop={true}
-              style={{ height: "15rem" }}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{username}'s MT15</h2>
-            <p>Click below to see this vehicle's Details</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-secondary my-5">
-                {" "}
-                <Link to="/logs">Service Logs</Link>
-              </button>
+        {/* {console.log("VEHICLE", vehicles)} */}
+
+        {vehicles.map((v) => (
+          <div key={v._id}>
+            {/* {console.log("INSIDE MAP", `${v.vname}`)} */}
+            <div className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <Lottie
+                  animationData={Bike}
+                  loop={true}
+                  style={{ height: "15rem" }}
+                />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">
+                  {username}'s {v.vname}
+                </h2>
+                <p>Click below to see this vehicle's Details</p>
+                <div className="card-actions justify-end">
+                  <button
+                    className="btn btn-secondary my-5 "
+                    onClick={() => {
+                      localStorage.setItem("VNO", v.regno.toLowerCase());
+                      navigate("/logs");
+                    }}
+                  >
+                    Service Logs
+                  </button>
+                  <button className="btn btn-secondary my-5">
+                    {" "}
+                    <Link to="/getLogs">Add Service Logs</Link>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <Lottie
-              animationData={Redcar}
-              loop={true}
-              style={{ height: "15rem" }}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">{username}'s Nexon</h2>
-            <p>Click below to see this vehicle's Details</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-secondary">Service Logs</button>
-            </div>
-          </div>
-        </div>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        ))}
+
+        {/* <div className="card w-96 bg-base-100 shadow-xl">
           <figure>
             <Lottie
               animationData={Bike}
@@ -201,10 +192,13 @@ function Dashboard() {
             <h2 className="card-title">{username}'s Maestro</h2>
             <p>Click below to see this vehicle's Details</p>
             <div className="card-actions justify-end">
-              <button className="btn btn-secondary">Service Logs</button>
+              <button className="btn btn-secondary my-5">
+                {" "}
+                <Link to="/logs">Service Logs</Link>
+              </button>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="add flex justify-center items-center"></div>
     </div>

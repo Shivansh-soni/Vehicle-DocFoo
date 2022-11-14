@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function Hero2() {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="navbar bg-base-100 z-999">
@@ -27,13 +29,20 @@ function Hero2() {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               <li>
-                <a href="/#">Add Vehicle</a>
+                <a href="/addVehicle">Add Vehicle</a>
               </li>
               <li>
                 <a href="/#">Settings</a>
               </li>
               <li>
-                <a href="/">Log out</a>
+                <button
+                  onClick={() => {
+                    localStorage.clear();
+                    navigate("/login");
+                  }}
+                >
+                  Log out
+                </button>
               </li>
             </ul>
           </div>

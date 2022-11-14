@@ -23,7 +23,7 @@ function Hero() {
 
       if (data.user) {
         localStorage.setItem("token", data.user);
-        window.location.href = "/dashboard";
+        window.location.href = "/dbmain";
       } else {
         alert("Wrong Credentials. Please try again");
       }
