@@ -15,6 +15,7 @@ function Dashboard() {
     const token = localStorage.getItem("token");
     if (token) {
       const user = jwt_decode(token);
+      // console.log("LOTTIE", typeof Bike);
 
       if (!user) {
         localStorage.removeItem("token");
@@ -36,6 +37,7 @@ function Dashboard() {
               // eslint-disable-next-line
               const vdata = vehicle.filter((e) => e.aoname == name);
               console.log("VDATA", vdata);
+
               setVehicles(vdata);
             } else {
               console.log(res.error);

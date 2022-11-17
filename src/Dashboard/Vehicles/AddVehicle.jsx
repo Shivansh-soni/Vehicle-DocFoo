@@ -29,7 +29,7 @@ function AddVehicle() {
           req.json().then((res) => {
             console.log(res);
             if (res.status === "ok") {
-              // setName(res.name);
+              setAoname(res.name);
             } else {
               console.log(res.error);
             }

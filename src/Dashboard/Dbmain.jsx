@@ -44,7 +44,7 @@ function Dbmain() {
       <Header />
       {/* -------------------------------VEHICLE SELECTION-------------------- */}
       <div
-        className="flex flex-col w-full justify-center lg:flex-row "
+        className="flex flex-col w-full justify-center md:items-center lg:flex-row "
         style={{
           position: "absolute",
           top: "50%",
