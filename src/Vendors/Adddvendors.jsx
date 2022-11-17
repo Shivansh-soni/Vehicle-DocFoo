@@ -122,10 +122,10 @@ function Adddvendors() {
           </div>
           <div className="form-control mt-4">
             <input
-              type="number"
+              type="text"
               value={contact}
-              maxLength="11"
-              minLength="11"
+              maxLength="10"
+              // minLength="10"
               required
               placeholder="Contact"
               className="input input-bordered"

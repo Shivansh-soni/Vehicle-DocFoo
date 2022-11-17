@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 function AddVehicle() {
-  const [oname, setOname] = React.useState("");
+  const [aoname, setAoname] = React.useState("");
+  const [voname, setVoname] = React.useState("");
   const [vname, setVname] = React.useState("");
   const [regno, setRegno] = React.useState("");
   const [vtype, setVtype] = React.useState("");
@@ -50,7 +51,8 @@ function AddVehicle() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        oname,
+        aoname,
+        voname,
         vname,
         regno,
         vtype,
@@ -85,11 +87,22 @@ function AddVehicle() {
         <div className="form-control">
           <input
             type="text"
-            value={oname}
-            placeholder="Owner's FullName"
+            value={aoname}
+            placeholder="Acount Owner FullName"
             className="input input-bordered"
             onChange={(e) => {
-              setOname(e.target.value);
+              setAoname(e.target.value.trim().replace(/\s+/g, ""));
+            }}
+          />
+        </div>
+        <div className="form-control mt-5">
+          <input
+            type="text"
+            value={voname}
+            placeholder="Vehicle Owner's FullName"
+            className="input input-bordered"
+            onChange={(e) => {
+              setVoname(e.target.value.trim().replace(/\s+/g, ""));
             }}
           />
         </div>
@@ -100,7 +113,7 @@ function AddVehicle() {
             placeholder="Vehicle's Name"
             className="input input-bordered"
             onChange={(e) => {
-              setVname(e.target.value);
+              setVname(e.target.value.trim().replace(/\s+/g, ""));
             }}
           />
         </div>
@@ -113,7 +126,7 @@ function AddVehicle() {
             maxLength="10"
             minLength="10"
             onChange={(e) => {
-              setRegno(e.target.value);
+              setRegno(e.target.value.trim().replace(/\s+/g, ""));
             }}
           />
         </div>

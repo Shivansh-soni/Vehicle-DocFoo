@@ -3,7 +3,7 @@ import Lottie from "lottie-react";
 // import Redcar from "../assets/red-car.json";
 import Bike from "../assets/Bike.json";
 import Blocks from "../Blocks/Blocks";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 function Dashboard() {
@@ -28,11 +28,15 @@ function Dashboard() {
           });
 
           req.json().then((res) => {
-            console.log("RES", res);
             if (res.status === "ok") {
+              console.log("RES", res);
+              const name = res.name;
               setName(res.name.toUpperCase());
-
-              setVehicles(res.vehicle);
+              const vehicle = res.vehicle;
+              // eslint-disable-next-line
+              const vdata = vehicle.filter((e) => e.aoname == name);
+              console.log("VDATA", vdata);
+              setVehicles(vdata);
             } else {
               console.log(res.error);
             }
@@ -94,7 +98,7 @@ function Dashboard() {
         </div>
         <div className="navbar-center">
           <p className="btn btn-ghost normal-case text-xl">
-            Hello , {username.charAt(0).toUpperCase() + username.slice(1)}
+            Hello , {username}
           </p>
         </div>
         <div className="navbar-end">
@@ -157,22 +161,27 @@ function Dashboard() {
               </figure>
               <div className="card-body">
                 <h2 className="card-title">
-                  {username}'s {v.vname}
+                  {v.voname}'s {v.vname}
                 </h2>
                 <p>Click below to see this vehicle's Details</p>
                 <div className="card-actions justify-end">
                   <button
                     className="btn btn-secondary my-5 "
                     onClick={() => {
-                      localStorage.setItem("VNO", v.regno.toLowerCase());
+                      localStorage.setItem("VNO", v.regno);
                       navigate("/logs");
                     }}
                   >
                     Service Logs
                   </button>
-                  <button className="btn btn-secondary my-5">
-                    {" "}
-                    <Link to="/getLogs">Add Service Logs</Link>
+                  <button
+                    className="btn btn-secondary my-5"
+                    onClick={() => {
+                      localStorage.setItem("VNO", v.regno);
+                      navigate("/getLogs");
+                    }}
+                  >
+                    Add Service Logs
                   </button>
                 </div>
               </div>

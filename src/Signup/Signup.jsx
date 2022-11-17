@@ -42,7 +42,7 @@ function Signup() {
     <div className="bg font-pop">
       <Blocks />
       <div
-        className="flex justify-center items-center "
+        className="flex justify-center items-center  w-96  "
         style={{
           position: "absolute",
           top: "50%",
@@ -50,22 +50,23 @@ function Signup() {
           transform: "translate(-50% , -50%)",
         }}
       >
-        <div className="card w-96 bg-base-100 shadow-xl ">
+        <div className="card bg-base-100 shadow-xl w-full ">
           <div className="card-body">
             <p className="text-xl text-center font-pop">Signup Form</p>
             <form onSubmit={HandleSubmit}>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
-                  <span className="label-text">Full name</span>
+                  <span className="label-text">Family Head's Full Name</span>
                 </label>
                 <input
                   type="text"
                   className="input input-bordered w-full max-w-xs"
                   value={fullname}
                   onChange={(e) => {
-                    setFullname(e.target.value);
+                    setFullname(e.target.value.trim().replace(/\s+/g, ""));
                   }}
                 />
+
                 <label className="label">
                   <span className="label-text">Email Id</span>
                 </label>

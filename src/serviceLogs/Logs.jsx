@@ -23,11 +23,12 @@ function Logs() {
 
           req.json().then((res) => {
             console.log("RES", res);
+            const vregno = localStorage.getItem("VNO");
             if (res.status === "ok") {
-              const vname = localStorage.getItem("VNO").toLowerCase();
+              // console.log(regno);
               const vehicle = res.service;
               // eslint-disable-next-line
-              const vdata = vehicle.filter((e) => e.regno == vname);
+              const vdata = vehicle.filter((e) => e.regno == vregno);
               console.log("VDATA", vdata);
               setLogs(vdata);
             } else {
