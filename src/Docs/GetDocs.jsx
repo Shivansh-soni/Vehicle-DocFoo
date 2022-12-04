@@ -25,7 +25,7 @@ function GetDocs() {
       } else {
         async function populate() {
           const req = await fetch(
-            "https://calm-pear-hippopotamus-kit.cyclic.app/api/db",
+            "https://witty-hare-snaps.cyclic.app/api/db",
             {
               headers: {
                 "x-access-token": localStorage.getItem("token"),

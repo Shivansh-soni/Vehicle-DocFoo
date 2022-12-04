@@ -49,7 +49,7 @@ function AddVehicle() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://calm-pear-hippopotamus-kit.cyclic.app/api/addvehicle",
+      "https://witty-hare-snaps.cyclic.app/api/addvehicle",
       {
         method: "POST",
         headers: {
