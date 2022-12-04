@@ -1,21 +1,19 @@
 import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import jwt_decode from "jwt-decode";
 import { useState } from "react";
 import Blocks from "../Blocks/Blocks";
+import Axios from "axios";
 
-function GetLogs() {
+function GetDocs() {
   const [regno, setRegno] = useState("");
   const [vname, setVname] = useState("");
   const [oname, setOname] = useState("");
-  const [date, setDate] = useState("");
-  const [kms, setKms] = useState("");
-  const [desc, setDesc] = useState("");
-  const [prob, setProb] = useState("");
-  const [amount, setAmount] = useState("");
-  const [stype, setStype] = useState("General");
+  const [aoname, setAOname] = useState("");
+  const [rto, setRto] = useState("");
+  const [puc, setPuc] = useState("");
+  const [insurance, setInsurance] = useState("");
 
-  const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -45,6 +43,7 @@ function GetLogs() {
                 setRegno(e.regno);
                 setVname(e.vname);
                 setOname(e.voname);
+                setAOname(e.aoname);
                 return 0;
               });
             } else {
@@ -59,38 +58,40 @@ function GetLogs() {
     }
   }, []);
 
+  //--------------------CLOUDINARY--------------------
+
   // ------ONSUBMIT--------------
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:1337/api/addlogs", {
+    // console.log("RTO", rto);
+    // console.log("PUC", puc);
+    // console.log("INSU", insurance);
+
+    const response = await fetch("http://localhost:1337/api/adddocs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        vname,
-        oname,
         regno,
-        date,
-        prob,
-        kms,
-        desc,
-        amount,
-        stype,
+        rto,
+        puc,
+        insurance,
+        oname,
+        aoname,
       }),
     });
-
     const data = await response.json();
-    if (data.status === "ok") {
-      navigate("/login");
+    if (data.status === "error") {
+      alert("ERROR");
+      window.location.reload();
     } else if (data.status === "success") {
-      alert("Logs added successfully");
+      alert("Docs added successfully");
       window.location.href = "/dashboard";
     }
     console.log(data);
   }
-
   return (
     <>
       <Blocks />
@@ -110,32 +111,6 @@ function GetLogs() {
           }}
         >
           <form onSubmit={HandleSubmit}>
-            {/* <div className="form-control mt-4">
-            <input
-              type="text"
-              value={regno}
-              placeholder="Registration No."
-              className="input input-bordered uppercase"
-              maxLength="10"
-              minLength="10"
-              required
-              onChange={(e) => {
-                setRegno(e.target.value.toLowerCase());
-              }}
-            />
-          </div> */}
-            <div className="form-control mt-4">
-              <input
-                type="text"
-                value={oname}
-                placeholder="Vehicle Owner's Fullname"
-                required
-                className="input input-bordered"
-                onChange={(e) => {
-                  setOname(e.target.value);
-                }}
-              />
-            </div>
             <div className="form-control mt-4">
               <input
                 type="text"
@@ -148,6 +123,7 @@ function GetLogs() {
                 }}
               />
             </div>
+
             <div className="form-control mt-4">
               <input
                 type="text"
@@ -163,72 +139,111 @@ function GetLogs() {
             <div className="form-control mt-4">
               <input
                 type="text"
-                value={date}
+                value={oname}
                 required
-                placeholder="Service Date ( dd / mm / yyyy)"
+                placeholder="Owner's Name"
                 className="input input-bordered"
                 onChange={(e) => {
-                  setDate(e.target.value);
+                  setOname(e.target.value.trim().replace(/\s+/g, ""));
                 }}
               />
             </div>
             <div className="form-control mt-4">
               <input
-                type="number"
-                value={kms}
-                placeholder="Kilometeres Covered"
-                className="input input-bordered"
+                type="text"
+                value={aoname}
                 required
+                placeholder="Owner's Name"
+                className="input input-bordered"
                 onChange={(e) => {
-                  setKms(e.target.value);
+                  setAOname(e.target.value.trim().replace(/\s+/g, ""));
                 }}
               />
             </div>
+
             <div className="form-control mt-4">
-              <textarea
-                className="textarea textarea-bordered"
-                value={desc}
-                placeholder="Description"
-                onChange={(e) => {
-                  setDesc(e.target.value);
-                }}
-              />
-            </div>
-            <div className="form-control mt-4">
-              <textarea
-                className="textarea textarea-bordered"
-                value={prob}
-                placeholder="Problems in your vehicle (IF ANY)"
-                onChange={(e) => {
-                  setProb(e.target.value);
-                }}
-              />
-            </div>
-            <div className="form-control mt-4">
+              <label className="label">
+                <span className="label-text">R.T.O.</span>
+              </label>
               <input
-                type="number"
-                value={amount}
+                type="file"
+                accept="application/pdf"
                 required
-                placeholder="Total Billing Ammount (INR)"
-                className="input input-bordered"
+                className="file-input w-full max-w-xs"
                 onChange={(e) => {
-                  setAmount(e.target.value);
+                  const formData = new FormData();
+                  formData.append("file", e.target.files[0]);
+                  formData.append("upload_preset", "jjgm3s5n");
+                  Axios.post(
+                    "https://api.cloudinary.com/v1_1/dswidepvx/auto/upload",
+                    formData
+                  ).then((response) => {
+                    // eslint-disable-next-line
+                    if (response.status == "200") {
+                      console.log("RES", response);
+                      setRto(response.data.url);
+                    } else {
+                      alert(response);
+                    }
+                  });
                 }}
               />
             </div>
             <div className="form-control mt-4">
-              <select
-                className="select select-bordered w-full self-center max-w-xs"
-                value={stype}
+              <label className="label">
+                <span className="label-text">P.U.C.</span>
+              </label>
+              <input
+                type="file"
+                accept="application/pdf"
                 required
+                className="file-input file-input-bordered w-full max-w-xs input-bordered"
                 onChange={(e) => {
-                  setStype(e.target.value);
+                  const formData = new FormData();
+                  formData.append("file", e.target.files[0]);
+                  formData.append("upload_preset", "jjgm3s5n");
+                  Axios.post(
+                    "https://api.cloudinary.com/v1_1/dswidepvx/auto/upload",
+                    formData
+                  ).then((response) => {
+                    // eslint-disable-next-line
+                    if (response.status == "200") {
+                      console.log("RES", response);
+                      setPuc(response.data.url);
+                    } else {
+                      alert(response);
+                    }
+                  });
                 }}
-              >
-                <option disabled>Service Type</option>
-                <option>General</option>
-                <option>Special</option>
-              </select>
+              />
+            </div>
+            <div className="form-control mt-4">
+              <label className="label">
+                <span className="label-text">Insurance</span>
+              </label>
+              <input
+                type="file"
+                accept="application/pdf"
+                required
+                className="file-input input-bordered w-full max-w-xs"
+                onChange={(e) => {
+                  const formData = new FormData();
+                  formData.append("file", e.target.files[0]);
+                  formData.append("upload_preset", "jjgm3s5n");
+                  Axios.post(
+                    "https://api.cloudinary.com/v1_1/dswidepvx/auto/upload",
+                    formData
+                  ).then((response) => {
+                    // eslint-disable-next-line
+                    if (response.status == "200") {
+                      console.log("RES", response);
+                      setInsurance(response.data.url);
+                    } else {
+                      alert(response);
+                    }
+                  });
+                }}
+              />
             </div>
 
             <div className="form-control mt-6">
@@ -246,4 +261,4 @@ function GetLogs() {
   );
 }
 
-export default GetLogs;
+export default GetDocs;

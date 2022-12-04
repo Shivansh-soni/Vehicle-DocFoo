@@ -14,6 +14,8 @@ import AddVehicle from "./Dashboard/Vehicles/AddVehicle";
 import GetLogs from "./serviceLogs/GetLogs";
 import Adddvendors from "./Vendors/Adddvendors";
 import ShowVendors from "./Vendors/ShowVendors";
+import GetDocs from "./Docs/GetDocs";
+import ShowDocs from "./Docs/ShowDocs";
 
 function App() {
   useEffect(() => {
@@ -35,6 +37,8 @@ function App() {
         <Route path="/getLogs" element={<GetLogs />}></Route>
         <Route path="/addVendor" element={<Adddvendors />}></Route>
         <Route path="/showVendor" element={<ShowVendors />}></Route>
+        <Route path="/addDocs" element={<GetDocs />}></Route>
+        <Route path="/showDocs" element={<ShowDocs />}></Route>
       </Routes>
     </BrowserRouter>
 

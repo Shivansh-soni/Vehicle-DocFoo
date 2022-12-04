@@ -177,13 +177,13 @@ function Dashboard() {
                     Service Logs
                   </button>
                   <button
-                    className="btn btn-secondary my-5"
+                    className="btn btn-secondary my-5 "
                     onClick={() => {
                       localStorage.setItem("VNO", v.regno);
-                      navigate("/getLogs");
+                      navigate("/showDocs");
                     }}
                   >
-                    Add Service Logs
+                    Documents
                   </button>
                 </div>
               </div>

@@ -3,8 +3,9 @@ import Blocks from "../Blocks/Blocks";
 import jwt_decode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
 
-function Logs() {
+function ShowDocs() {
   let [logs, setLogs] = useState([]);
+
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -16,7 +17,7 @@ function Logs() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("http://localhost:1337/api/showlogs", {
+          const req = await fetch("http://localhost:1337/api/showdocs", {
             headers: {
               "x-access-token": localStorage.getItem("token"),
             },
@@ -26,12 +27,15 @@ function Logs() {
             console.log("RES", res);
             const vregno = localStorage.getItem("VNO");
             if (res.status === "ok") {
-              // console.log(regno);
-              const vehicle = res.service;
+              console.log(res.vehicle);
+              const vehicle = res.vehicle;
               // eslint-disable-next-line
               const vdata = vehicle.filter((e) => e.regno == vregno);
-              console.log("VDATA", vdata);
               setLogs(vdata);
+              console.log("VDATA", vdata);
+              vdata.map((e) => {
+                return 0;
+              });
             } else {
               console.log(res.error);
             }
@@ -50,23 +54,31 @@ function Logs() {
         <table className="table table-compact w-full">
           <thead>
             <tr>
-              <th className="text-center">Vehicle</th>
-              <th className="text-center">Date</th>
-              <th className="text-center">Kilometeres</th>
-              <th className="text-center">Description</th>
-              <th className="text-center">Total Amount (INR) </th>
-              <th className="text-center">Service Type</th>
+              <th className="text-center">Registration no.</th>
+              <th className="text-center">R.T.O.</th>
+              <th className="text-center">P.U.C.</th>
+              <th className="text-center">Insurance</th>
             </tr>
           </thead>
           <tbody className="text-center">
             {logs.map((e) => (
               <tr key={e._id}>
-                <td>{e.vname}</td>
-                <td>{e.date}</td>
-                <td>{e.kms}</td>
-                <td>{e.desc}</td>
-                <td>{e.amount}</td>
-                <td>{e.stype}</td>
+                <td>{e.regno}</td>
+                <td>
+                  <a href={e.rto} target="blank">
+                    Click Here
+                  </a>
+                </td>
+                <td>
+                  <a href={e.puc} target="blank">
+                    Click Here
+                  </a>
+                </td>
+                <td>
+                  <a href={e.insurance} target="blank">
+                    Click Here
+                  </a>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -76,14 +88,14 @@ function Logs() {
         <button
           className="btn btn-secondary my-5 btn-center"
           onClick={() => {
-            navigate("/getLogs");
+            navigate("/addDocs");
           }}
         >
-          Add Service Logs
+          Add Docs
         </button>
       </div>
     </div>
   );
 }
 
-export default Logs;
+export default ShowDocs;
