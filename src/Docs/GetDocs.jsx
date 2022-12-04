@@ -72,7 +72,7 @@ function GetDocs() {
     // console.log("INSU", insurance);
 
     const response = await fetch(
-      "https://calm-pear-hippopotamus-kit.cyclic.app/api/adddocs",
+      "https://witty-hare-snaps.cyclic.app/api/adddocs",
       {
         method: "POST",
         headers: {
