@@ -49,8 +49,8 @@ function Logs() {
   return (
     <div>
       <Blocks />
-      <div className="overflow-x-auto">
-        <table className="table table-compact w-full">
+      <div className="overflow-x-auto ">
+        <table className="table table-compact lg:table-row ">
           <thead>
             <tr>
               <th className="text-center">Vehicle</th>

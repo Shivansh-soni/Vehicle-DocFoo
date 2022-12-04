@@ -104,7 +104,7 @@ function GetDocs() {
 
       <div className="flex flex-col justify-center">
         <p className="text-2xl font-bold text-center mt-5 mb-5">
-          Add Service Records
+          Add Documents
         </p>
         <div className="card-body mt-5 ">
           <form onSubmit={HandleSubmit}>
@@ -133,18 +133,7 @@ function GetDocs() {
                 }}
               />
             </div>
-            <div className="form-control mt-4">
-              <input
-                type="text"
-                value={oname}
-                required
-                placeholder="Owner's Name"
-                className="input input-bordered"
-                onChange={(e) => {
-                  setOname(e.target.value.trim().replace(/\s+/g, ""));
-                }}
-              />
-            </div>
+
             <div className="form-control mt-4">
               <input
                 type="text"
