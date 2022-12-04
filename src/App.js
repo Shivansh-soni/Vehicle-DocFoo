@@ -9,7 +9,7 @@ import React, { useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Logs from "./serviceLogs/Logs";
-import Table2 from "./Table/Table2";
+
 import AddVehicle from "./Dashboard/Vehicles/AddVehicle";
 import GetLogs from "./serviceLogs/GetLogs";
 import Adddvendors from "./Vendors/Adddvendors";
@@ -32,7 +32,7 @@ function App() {
         <Route path="/login" element={<Login />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route path="/logs" element={<Logs />}></Route>
-        <Route path="/vendor" element={<Table2 />}></Route>
+
         <Route path="/addVehicle" element={<AddVehicle />}></Route>
         <Route path="/getLogs" element={<GetLogs />}></Route>
         <Route path="/addVendor" element={<Adddvendors />}></Route>
