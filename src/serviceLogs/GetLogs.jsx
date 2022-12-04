@@ -64,7 +64,7 @@ function GetLogs() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://vdf-backend.onrender.com/api/addlogs",
+      "https://witty-hare-snaps.cyclic.app/api/addlogs",
       {
         method: "POST",
         headers: {
@@ -97,22 +97,12 @@ function GetLogs() {
   return (
     <>
       <Blocks />
-
-      <div className="flex flex-col justify-center">
-        <p className="text-2xl font-bold text-center mt-5 mb-5">
+      <div className="flex flex-col justify-center ">
+        <p className="text-2xl font-bold text-center mt-5">
           Add Service Records
         </p>
-        <div
-          className="card-body mt-5 "
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "30%",
-          }}
-        >
-          <form onSubmit={HandleSubmit}>
+        <div className="card-body mt-5 mb-5 flex justify-center items-center">
+          <form onSubmit={HandleSubmit} className="w-5/12 max-w-md">
             {/* <div className="form-control mt-4">
             <input
               type="text"
@@ -127,13 +117,13 @@ function GetLogs() {
               }}
             />
           </div> */}
-            <div className="form-control mt-4">
+            <div className="form-control mt-4 ">
               <input
                 type="text"
                 value={oname}
                 placeholder="Vehicle Owner's Fullname"
                 required
-                className="input input-bordered"
+                className="input input-bordered "
                 onChange={(e) => {
                   setOname(e.target.value);
                 }}

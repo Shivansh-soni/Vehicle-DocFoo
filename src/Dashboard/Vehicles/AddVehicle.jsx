@@ -20,11 +20,14 @@ function AddVehicle() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
-            headers: {
-              "x-access-token": localStorage.getItem("token"),
-            },
-          });
+          const req = await fetch(
+            "https://witty-hare-snaps.cyclic.app/api/db",
+            {
+              headers: {
+                "x-access-token": localStorage.getItem("token"),
+              },
+            }
+          );
 
           req.json().then((res) => {
             console.log(res);
@@ -46,7 +49,7 @@ function AddVehicle() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://vdf-backend.onrender.com/api/addvehicle",
+      "https://calm-pear-hippopotamus-kit.cyclic.app/api/addvehicle",
       {
         method: "POST",
         headers: {
@@ -76,16 +79,10 @@ function AddVehicle() {
   }
 
   return (
-    <div
-      className="card-body "
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: "30%",
-      }}
-    >
+    <div className="card-body ">
+      <p className="text-3xl font-pop font-bold text-center py-16">
+        Add Vehicle
+      </p>
       <form onSubmit={HandleSubmit}>
         <div className="form-control">
           <input

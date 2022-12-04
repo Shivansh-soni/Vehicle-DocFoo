@@ -9,7 +9,7 @@ function Hero() {
     e.preventDefault();
     if (email && password) {
       const response = await fetch(
-        "https://vdf-backend.onrender.com/api/login",
+        "https://witty-hare-snaps.cyclic.app/api/login",
         {
           method: "POST",
           headers: {

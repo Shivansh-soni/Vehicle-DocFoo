@@ -48,7 +48,7 @@ function Adddvendors() {
     e.preventDefault();
 
     const response = await fetch(
-      "https://vdf-backend.onrender.com/api/addvendor",
+      "https://witty-hare-snaps.cyclic.app/api/addvendor",
       {
         method: "POST",
         headers: {
@@ -75,18 +75,10 @@ function Adddvendors() {
   }
 
   return (
-    <div
-      className="flex flex-col justify-center  w-full "
-      style={{
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50% , -50%)",
-      }}
-    >
+    <div className="flex flex-col justify-center py-16 items-center ">
       <p className="text-2xl font-bold text-center ">Add Local Vendors</p>
-      <div className="card-body ">
-        <form onSubmit={HandleSubmit} className="w-4/12 self-center">
+      <div className="card-body  ">
+        <form onSubmit={HandleSubmit} className=" w-96 ">
           <div className="form-control mt-4">
             <input
               type="text"

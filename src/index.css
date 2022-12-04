@@ -9,6 +9,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 html {
@@ -28,11 +29,6 @@ html {
     .media-center {
         text-align: center;
     }
-
-    * {
-        /* border: 1px solid red; */
-    }
-
 
     .docfoo_logo {
         display: none;
@@ -54,7 +50,7 @@ html {
         padding: 0;
         margin: 15px 0 0 0;
         position: fixed;
-        left: -10%;
+
     }
 
     .steps-container {

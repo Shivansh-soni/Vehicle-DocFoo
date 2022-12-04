@@ -17,7 +17,7 @@ function Logs() {
       } else {
         async function populate() {
           const req = await fetch(
-            "https://vdf-backend.onrender.com/api/showlogs",
+            "https://witty-hare-snaps.cyclic.app/api/showlogs",
             {
               headers: {
                 "x-access-token": localStorage.getItem("token"),

@@ -24,11 +24,14 @@ function GetDocs() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
-            headers: {
-              "x-access-token": localStorage.getItem("token"),
-            },
-          });
+          const req = await fetch(
+            "https://calm-pear-hippopotamus-kit.cyclic.app/api/db",
+            {
+              headers: {
+                "x-access-token": localStorage.getItem("token"),
+              },
+            }
+          );
 
           req.json().then((res) => {
             console.log(res);
@@ -69,7 +72,7 @@ function GetDocs() {
     // console.log("INSU", insurance);
 
     const response = await fetch(
-      "https://vdf-backend.onrender.com/api/adddocs",
+      "https://calm-pear-hippopotamus-kit.cyclic.app/api/adddocs",
       {
         method: "POST",
         headers: {
@@ -103,16 +106,7 @@ function GetDocs() {
         <p className="text-2xl font-bold text-center mt-5 mb-5">
           Add Service Records
         </p>
-        <div
-          className="card-body mt-5 "
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: "30%",
-          }}
-        >
+        <div className="card-body mt-5 ">
           <form onSubmit={HandleSubmit}>
             <div className="form-control mt-4">
               <input

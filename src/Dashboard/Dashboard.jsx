@@ -22,11 +22,14 @@ function Dashboard() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
-            headers: {
-              "x-access-token": localStorage.getItem("token"),
-            },
-          });
+          const req = await fetch(
+            "https://witty-hare-snaps.cyclic.app/api/db",
+            {
+              headers: {
+                "x-access-token": localStorage.getItem("token"),
+              },
+            }
+          );
 
           req.json().then((res) => {
             if (res.status === "ok") {
@@ -56,7 +59,7 @@ function Dashboard() {
       <Blocks />
 
       {/* ------------------------------HEADER------------------------------- */}
-      <div className="navbar bg-base-100 z-999">
+      <div className="navbar bg-base-100 absolute z-9 ">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -98,7 +101,7 @@ function Dashboard() {
             </ul>
           </div>
         </div>
-        <div className="navbar-center">
+        <div className="navbar-center absolute ">
           <p className="btn btn-ghost normal-case text-xl">
             Hello , {username}
           </p>
@@ -147,7 +150,7 @@ function Dashboard() {
         </div>
       </div>
       {/* ---------------------DASHBOARD------------------------------------------ */}
-      <div className="card_container flex flex-wrap flex-row gap-20 py-12 align justify-center">
+      <div className="card_container flex flex-wrap flex-row gap-20 py-12 align justify-center pt-36">
         {/* {console.log("VEHICLE", vehicles)} */}
 
         {vehicles.map((v) => (

@@ -16,11 +16,14 @@ function Dbmain() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
-            headers: {
-              "x-access-token": localStorage.getItem("token"),
-            },
-          });
+          const req = await fetch(
+            "https://witty-hare-snaps.cyclic.app/api/db",
+            {
+              headers: {
+                "x-access-token": localStorage.getItem("token"),
+              },
+            }
+          );
 
           req.json().then((res) => {
             console.log(res);
@@ -44,7 +47,7 @@ function Dbmain() {
       <Header />
       {/* -------------------------------VEHICLE SELECTION-------------------- */}
       <div
-        className="flex flex-col w-full justify-center md:items-center lg:flex-row "
+        className="flex flex-col w-full justify-center items-center lg:flex-row  "
         style={{
           position: "absolute",
           top: "50%",

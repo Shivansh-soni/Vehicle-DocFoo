@@ -12,7 +12,7 @@ function Signup() {
   async function HandleSubmit(e) {
     e.preventDefault();
     const response = await fetch(
-      "https://vdf-backend.onrender.com/api/register",
+      "https://witty-hare-snaps.cyclic.app/api/register",
       {
         method: "POST",
         headers: {
