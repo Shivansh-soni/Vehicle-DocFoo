@@ -22,7 +22,7 @@ function Dashboard() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("http://localhost:1337/api/db", {
+          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
             headers: {
               "x-access-token": localStorage.getItem("token"),
             },

@@ -21,7 +21,7 @@ function Adddvendors() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("http://localhost:1337/api/db", {
+          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
             headers: {
               "x-access-token": localStorage.getItem("token"),
             },
@@ -47,19 +47,22 @@ function Adddvendors() {
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:1337/api/addvendor", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        vname,
-        city,
-        area,
-        contact,
-        addr,
-      }),
-    });
+    const response = await fetch(
+      "https://vdf-backend.onrender.com/api/addvendor",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          vname,
+          city,
+          area,
+          contact,
+          addr,
+        }),
+      }
+    );
 
     const data = await response.json();
     if (data.status === "ok") {

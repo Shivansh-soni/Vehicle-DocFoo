@@ -17,11 +17,14 @@ function ShowDocs() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("http://localhost:1337/api/showdocs", {
-            headers: {
-              "x-access-token": localStorage.getItem("token"),
-            },
-          });
+          const req = await fetch(
+            "https://vdf-backend.onrender.com/api/showdocs",
+            {
+              headers: {
+                "x-access-token": localStorage.getItem("token"),
+              },
+            }
+          );
 
           req.json().then((res) => {
             console.log("RES", res);

@@ -20,7 +20,7 @@ function AddVehicle() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("http://localhost:1337/api/db", {
+          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
             headers: {
               "x-access-token": localStorage.getItem("token"),
             },
@@ -45,19 +45,22 @@ function AddVehicle() {
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:1337/api/addvehicle", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        aoname,
-        voname,
-        vname,
-        regno,
-        vtype,
-      }),
-    });
+    const response = await fetch(
+      "https://vdf-backend.onrender.com/api/addvehicle",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          aoname,
+          voname,
+          vname,
+          regno,
+          vtype,
+        }),
+      }
+    );
 
     const data = await response.json();
 

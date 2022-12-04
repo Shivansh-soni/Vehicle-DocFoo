@@ -26,7 +26,7 @@ function GetLogs() {
         window.loacation.href = "/login";
       } else {
         async function populate() {
-          const req = await fetch("http://localhost:1337/api/db", {
+          const req = await fetch("https://vdf-backend.onrender.com/api/db", {
             headers: {
               "x-access-token": localStorage.getItem("token"),
             },
@@ -63,23 +63,26 @@ function GetLogs() {
   async function HandleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:1337/api/addlogs", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        vname,
-        oname,
-        regno,
-        date,
-        prob,
-        kms,
-        desc,
-        amount,
-        stype,
-      }),
-    });
+    const response = await fetch(
+      "https://vdf-backend.onrender.com/api/addlogs",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          vname,
+          oname,
+          regno,
+          date,
+          prob,
+          kms,
+          desc,
+          amount,
+          stype,
+        }),
+      }
+    );
 
     const data = await response.json();
     if (data.status === "ok") {

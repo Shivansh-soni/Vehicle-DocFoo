@@ -11,17 +11,20 @@ function Signup() {
 
   async function HandleSubmit(e) {
     e.preventDefault();
-    const response = await fetch("http://localhost:1337/api/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        fullname,
-        email,
-        password,
-      }),
-    });
+    const response = await fetch(
+      "https://vdf-backend.onrender.com/api/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          fullname,
+          email,
+          password,
+        }),
+      }
+    );
 
     const data = await response.json();
 
