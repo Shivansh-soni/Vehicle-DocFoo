@@ -49,8 +49,8 @@ function Logs() {
   return (
     <div>
       <Blocks />
-      <div className="overflow-x-auto ">
-        <table className="table table-compact lg:table-row ">
+      <div className="overflow-x-auto flex justify-center">
+        <table className="table table-auto w-full  ">
           <thead>
             <tr>
               <th className="text-center">Vehicle</th>
@@ -77,7 +77,7 @@ function Logs() {
       </div>
       <div className="flex justify-center">
         <button
-          className="btn btn-secondary my-5 btn-center"
+          className="btn btn-secondary my-5 ml-20 btn-center"
           onClick={() => {
             navigate("/getLogs");
           }}

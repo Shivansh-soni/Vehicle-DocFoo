@@ -101,8 +101,8 @@ function Dashboard() {
             </ul>
           </div>
         </div>
-        <div className="navbar-center absolute ">
-          <p className="btn btn-ghost normal-case text-xl">
+        <div className="navbar-center">
+          <p className="btn btn-ghost normal-case text-xl ">
             Hello , {username}
           </p>
         </div>
