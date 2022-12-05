@@ -49,10 +49,11 @@ function Logs() {
   return (
     <div>
       <Blocks />
-      <div className="overflow-x-auto flex justify-center">
-        <table className="table table-auto w-full  ">
+      <div className="overflow-x-auto  ">
+        <table className="table table-auto lg:w-full lg:-ml-8  ">
           <thead>
             <tr>
+              <th></th>
               <th className="text-center">Vehicle</th>
               <th className="text-center">Date</th>
               <th className="text-center">Kilometeres</th>
@@ -64,6 +65,7 @@ function Logs() {
           <tbody className="text-center">
             {logs.map((e) => (
               <tr key={e._id}>
+                <td></td>
                 <td>{e.vname}</td>
                 <td>{e.date}</td>
                 <td>{e.kms}</td>
